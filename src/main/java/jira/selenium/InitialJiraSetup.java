@@ -27,8 +27,8 @@ public class InitialJiraSetup {
 
         log("BaseUrl = " + baseUrl);
         log("License contains [" + license.length() + "] symbols. First part: [" + license.substring(0, 15) + "]");
-        driver = new HtmlUnitDriver(true);
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
+        driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
 
         driver.get(baseUrl);
         log("Initial page was opened");
