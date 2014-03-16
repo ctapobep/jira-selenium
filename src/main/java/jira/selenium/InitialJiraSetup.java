@@ -3,11 +3,7 @@ package jira.selenium;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,7 +14,7 @@ public class InitialJiraSetup {
     private static WebDriver driver;
 
     public static void main(String[] args) throws InterruptedException {
-        if(args.length < 2){
+        if (args.length < 2) {
             System.err.println("First param should be base url where jira can be find, second - license key.");
             System.exit(1);
         }
@@ -27,7 +23,7 @@ public class InitialJiraSetup {
 
         log("BaseUrl = " + baseUrl);
         log("License contains [" + license.length() + "] symbols. First part: [" + license.substring(0, 15) + "]");
-        driver = new FirefoxDriver();
+        driver = new HtmlUnitDriver(true);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
 
         driver.get(baseUrl);
